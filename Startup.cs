@@ -16,6 +16,7 @@ namespace DutchTreat
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,8 +45,30 @@ namespace DutchTreat
             //    await context.Response.WriteAsync("Hello World");
             //});
 
-            app.UseDefaultFiles();
+
+            // This option lookfor a default files like a index.html
+            // to start 
+            //app.UseDefaultFiles();
+            //app.UseStaticFiles();
+
+            // This option is use with MVC to start the project
+
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+                
+            
+
             app.UseStaticFiles();
+            app.UseRouting();
+            app.UseEndpoints(cfg =>
+            {
+                cfg.MapControllerRoute ("Default",
+                    "/{controller}/{action}/{id?}",
+                    new { controller = "App", action = "Index" });
+            
+            });
 
 
 
