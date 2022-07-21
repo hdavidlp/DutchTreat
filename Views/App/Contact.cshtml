@@ -1,1 +1,58 @@
-﻿<h2>@ViewBag.Title</h2>
+﻿@model ContactViewModel
+
+
+@{
+    ViewBag.Title = "Contact Us";
+}
+
+ @*To validate on realtime data fields, include the next 2 libraries
+ it will send an instant message while the user are introducing the data
+     this is important because, we validate the data before send it
+ *@
+@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script>
+}
+
+
+
+@*
+    Normal Label + Input HTML
+    <label>Your name: </label>
+    <input name="name" />
+
+    Using ASP + MVC, this activate the
+    intelisense from IDE and helps to
+    select the field name
+    The asp-from in the label, helps to the user
+    when clic on the label to focus on the field
+    <label asp-for="Name">Your name: </label>
+    <input asp-for="Name" />
+*@
+
+
+<div class="col-md-6 offset-md-3">
+    <div class="card card-body bg-light">
+        <div asp-validation-summary="ModelOnly"> </div>
+        <form method="post">
+            <label asp-for="Name">Your name: </label><br />
+            <input asp-for="Name" /> <br />
+            <span asp-validation-for="Name"></span>  @* Space to show the error*@
+
+            <label asp-for="Email">Email: </label><br />
+            <input type="email" asp-for="Email" /> <br />
+            <span asp-validation-for="Email"></span>
+
+            <label asp-for="Subject">Subject: </label><br />
+            <input type="text" asp-for="Subject" /> <br />
+            <span asp-validation-for="Subject"></span>
+
+            <label asp-for="Message">Message: </label><br />
+            <textarea rows="4" asp-for="Message"> </textarea> <br />
+            <span asp-validation-for="Message"></span>
+
+            <input type="submit" value="Send Message" />
+            <div>@ViewBag.UserMessage</div>
+        </form>
+    </div>
+</div>

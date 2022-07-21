@@ -1,4 +1,10 @@
-﻿body {
+﻿/*
+    
+This is a basic CSS for the project, but is commented cause 
+we add a bootstrap
+    
+
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
@@ -35,9 +41,9 @@ ul.product-props{
 
 .product-info{
     border:1px solid grey;
-    display: inline-block;
+    display: inline-block;*/
     /*padding : 5px;*/
-    padding: 5px 5px 5px 5px;
+    /*padding: 5px 5px 5px 5px;
     margin: 5px;
     width: 450px;
     background-color:lightgray;
@@ -47,8 +53,8 @@ ul.product-props{
 
     .product-info img {
         margin: 3px;
-        float: left; /* Just take the necesary space for the img */
-        border: 1px solid black;
+        float: left;*/ /* Just take the necesary space for the img */
+        /*border: 1px solid black;
         max-width: 150px;
     }
 
@@ -89,4 +95,4 @@ menu li  {
     menu li:last-of-type::after{
         content:"";
 
-    }
+    }*/
